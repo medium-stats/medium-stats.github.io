@@ -1,20 +1,13 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import {
-  Box,
-  Heading,
-  Stack,
-  Wrap,
-  Skeleton,
-  Divider,
-  Select,
-} from '@chakra-ui/react';
+import { Box, Heading, Wrap, Divider, Select } from '@chakra-ui/react';
 
 import UserList from './UserList';
 import MediumMembersPie from './charts/MediumMembersPie';
 import PartnerProgramMembersPie from './charts/PartnerProgramMembersPie';
 import UserCard from './UserCard';
+import SkeletonStack from 'SkeletonStack';
 
 const serverUrl = 'https://mediumstatsapi.herokuapp.com';
 
@@ -49,7 +42,7 @@ const Results = (props) => {
 
   const { isLoading: isLoadingFollowings, data: followings } = useQuery(
     ['followings', username],
-    () => getFollowingsByUserId(user?.userId),
+    () => getFollowingsByUserId(user.userId),
     {
       enabled: !!user?.userId,
     }
@@ -57,22 +50,16 @@ const Results = (props) => {
 
   const { isLoading: isLoadingFollowers, data: followers } = useQuery(
     ['followers', username],
-    () => getFollowersByUserId(user?.userId),
+    () => getFollowersByUserId(user.userId),
     {
       enabled: !!user?.userId,
     }
   );
 
   if (isLoadingUser) {
-    return (
-      <Stack mt="32px">
-        <Skeleton height="20px" />
-        <Skeleton height="20px" />
-        <Skeleton height="20px" />
-      </Stack>
-    );
+    return <SkeletonStack />;
   }
-  if (isErrorUser) return 'error';
+  if (isErrorUser) return 'Error';
 
   return (
     <div>
@@ -99,11 +86,7 @@ const Results = (props) => {
       {isLoadingFollowers && (
         <>
           <Box m="12px 0">Getting follower list...</Box>
-          <Stack>
-            <Skeleton height="20px" />
-            <Skeleton height="20px" />
-            <Skeleton height="20px" />
-          </Stack>
+          <SkeletonStack />
         </>
       )}
       <Divider m="24px 0" />
@@ -129,11 +112,7 @@ const Results = (props) => {
       {isLoadingFollowings && (
         <>
           <Box m="12px 0">Getting following list...</Box>
-          <Stack>
-            <Skeleton height="20px" />
-            <Skeleton height="20px" />
-            <Skeleton height="20px" />
-          </Stack>
+          <SkeletonStack />
         </>
       )}
       {followings && (

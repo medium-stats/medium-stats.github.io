@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-
 import { Box, HStack, Link, Avatar, Heading, Text } from '@chakra-ui/react';
 import { FaTwitter, FaMedium, FaClock, FaCheck, FaTimes } from 'react-icons/fa';
 import relativeTime from 'dayjs/plugin/relativeTime';

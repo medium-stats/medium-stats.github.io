@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { extendTheme, ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Box } from '@chakra-ui/react';
 
 import Form from 'components/Form';
 import Header from 'components/Header';
 import Results from 'components/Results';
-import './App.css';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,15 +13,6 @@ const queryClient = new QueryClient({
     },
   },
 });
-
-const colors = {
-  brand: {
-    900: '#4E8098',
-    800: '#9D8189',
-    700: '#56CBF9',
-  },
-};
-const theme = extendTheme({ colors });
 
 const App = () => {
   const [username, setUsername] = useState('');
@@ -35,8 +25,14 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ChakraProvider theme={theme}>
-        <div className="App">
+      <ChakraProvider>
+        <Box
+          className="App"
+          bg="#FCF7F8"
+          color="#2F2F2F"
+          minH="100vh"
+          p={{ sm: '60px 30px', md: '60px 120px' }}
+        >
           <Header />
           <Form
             onSubmit={onSubmit}
@@ -44,7 +40,7 @@ const App = () => {
             setUsername={setUsername}
           />
           {submittedUsername && <Results username={submittedUsername} />}
-        </div>
+        </Box>
       </ChakraProvider>
     </QueryClientProvider>
   );

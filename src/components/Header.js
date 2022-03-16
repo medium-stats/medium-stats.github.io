@@ -60,7 +60,7 @@ const Header = () => {
 
           <Box align="right" maxW="300px">
             <Link
-              href="https://mmelikes.medium.com"
+              href="https://mmelikes.medium.com/membership"
               isExternal
               textDecoration="underline"
             >
