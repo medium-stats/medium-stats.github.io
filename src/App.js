@@ -31,7 +31,7 @@ const App = () => {
           bg="#FCF7F8"
           color="#2F2F2F"
           minH="100vh"
-          p={{ sm: '60px 30px', md: '60px 120px' }}
+          p={{ base: '60px 30px', md: '60px 120px' }}
         >
           <Header />
           <Form
