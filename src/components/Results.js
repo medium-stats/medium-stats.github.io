@@ -16,7 +16,7 @@ import MediumMembersPie from './charts/MediumMembersPie';
 import PartnerProgramMembersPie from './charts/PartnerProgramMembersPie';
 import UserCard from './UserCard';
 
-const serverUrl = 'http://localhost:3001';
+const serverUrl = 'https://mediumstatsapi.herokuapp.com';
 
 const getUserByUsername = (username) => {
   return axios
