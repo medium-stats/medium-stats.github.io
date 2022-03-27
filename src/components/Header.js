@@ -22,6 +22,26 @@ const Header = () => {
             followings, find out who is following you back, how many of your
             followers are in Medium Partner Program, etc.
           </Text>
+          <Text>
+            Check out{' '}
+            <Link
+              href="https://medium.com/illumination/analyze-your-medium-follower-stats-with-this-tool-9cb0d61c8b33"
+              isExternal
+              textDecoration="underline"
+            >
+              this Medium post
+            </Link>{' '}
+            to find out more about the background, implementation choices and
+            the usage of this tool. Or contribute{' '}
+            <Link
+              href="https://github.com/medium-stats"
+              isExternal
+              textDecoration="underline"
+            >
+              here
+            </Link>
+            .
+          </Text>
         </VStack>
         <Spacer />
         <VStack align="flex-end">
